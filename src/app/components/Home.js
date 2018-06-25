@@ -6,6 +6,7 @@ export class Home extends React.Component {
         super();
         this.state = {
             age: props.age,
+            headerName: "Changed name",
         };
     }
 
@@ -15,6 +16,10 @@ export class Home extends React.Component {
         });
     }
 
+    onChangeName() {
+        this.props.changeHeaderTitle(this.state.headerName);
+    }
+
     render() {
         return(
             <div>
@@ -22,6 +27,8 @@ export class Home extends React.Component {
                 <p>My name is {this.props.name} and I'm {this.state.age}</p>
                 <hr />
                 <button onClick={this.onMakeMeYounger.bind(this)}>Make me younger!</button>
+                <hr />
+                <button onClick={this.onChangeName.bind(this)}>Change Header Title!</button>
             </div>
         );
     }
