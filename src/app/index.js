@@ -23,7 +23,12 @@ class App extends React.Component {
         return (
             <div>
                 <Header name={this.state.headerTitle} />
-                <Home name="Javier" age="34" changeHeaderTitle={this.onChangeHeaderTitle.bind(this)} />
+                <Home
+                    name="Javier"
+                    age="34"
+                    changeHeaderTitle={this.onChangeHeaderTitle.bind(this)}
+                    initialHeaderTitle={this.state.headerTitle}
+                />
             </div>
         );
     }

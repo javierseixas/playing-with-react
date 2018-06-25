@@ -6,7 +6,7 @@ export class Home extends React.Component {
         super();
         this.state = {
             age: props.age,
-            headerName: "Changed name",
+            headerName: props.initialHeaderTitle,
         };
     }
 
@@ -14,6 +14,12 @@ export class Home extends React.Component {
         this.setState({
             age: this.state.age - 1
         });
+    }
+
+    onHandleChange(event) {
+        this.setState({
+            headerName: event.target.value
+        })
     }
 
     onChangeName() {
@@ -28,6 +34,7 @@ export class Home extends React.Component {
                 <hr />
                 <button onClick={this.onMakeMeYounger.bind(this)}>Make me younger!</button>
                 <hr />
+                <input type="text" value={this.state.headerName} onChange={(event) => this.onHandleChange(event)}/><br />
                 <button onClick={this.onChangeName.bind(this)}>Change Header Title!</button>
             </div>
         );
