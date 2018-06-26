@@ -1,8 +1,14 @@
 import React from "react";
 import { render } from "react-dom";
+import {BrowserRouter as Router, Route, browserHistory} from "react-router-dom";
+import createBrowserHistory from 'history/createBrowserHistory';
+
+const customHistory = createBrowserHistory()
 
 import { Home } from "./components/Home"
-import { Header } from "./components/Header"
+import { EmptyHome } from "./components/EmptyHome"
+import { Root } from "./components/Root"
+import { Section } from "./components/Section"
 
 class App extends React.Component {
 
@@ -21,15 +27,22 @@ class App extends React.Component {
 
     render() {
         return (
-            <div>
-                <Header name={this.state.headerTitle} />
-                <Home
-                    name="Javier"
-                    age="34"
-                    changeHeaderTitle={this.onChangeHeaderTitle.bind(this)}
-                    initialHeaderTitle={this.state.headerTitle}
-                />
-            </div>
+            <Router history={customHistory}>
+                <div>
+                    <Route path="/" component={Root} />
+                    <Route exact path="/" component={EmptyHome} />
+                    <Route path="/section" component={Section} />
+                    <Route path="/home" component={EmptyHome} />
+                </div>
+            </Router>
+            // <Root>
+            //     <Home
+            //         name="Javier"
+            //         age="34"
+            //         changeHeaderTitle={this.onChangeHeaderTitle.bind(this)}
+            //         initialHeaderTitle={this.state.headerTitle}
+            //     />
+            // </Root>
         );
     }
 }
