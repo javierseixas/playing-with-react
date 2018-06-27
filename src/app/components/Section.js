@@ -14,7 +14,7 @@ export class Section extends React.Component {
 
         return (
             <div>
-                <h2>Section page</h2>
+                <h2>Section page {this.props.match.params.id}</h2>
                 <button onClick={this.onNavigateHome}>Go home!</button>
             </div>
         );

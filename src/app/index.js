@@ -31,7 +31,7 @@ class App extends React.Component {
                 <div>
                     <Route path="/" component={Root} />
                     <Route exact path="/" component={EmptyHome} />
-                    <Route path="/section" component={Section} />
+                    <Route path="/section/:id" component={Section} />
                     <Route path="/home" component={EmptyHome} />
                 </div>
             </Router>
